@@ -65,7 +65,19 @@ module.exports = {
           babelOptions,
           isTestFile ? {
             plugins: [pathToBabelPluginAsyncToGenerator].concat(babelOptions.plugins),
-          } : {}
+          } : {
+            plugins: babelOptions.plugins.concat([
+              [path.resolve('../babel-plugin-runtyper'), {
+                enabled: true,
+                warnLevel: 'info',
+                implicitAddStringNumber: 'allow',
+                implicitEqualNull: 'allow',
+                implicitEqualUndefined: 'allow',
+                explicitAddEmptyString: 'allow',
+                implicitEqualCustomTypes: 'allow',
+              }],
+            ]),
+          }
         )
       ).code;
     }

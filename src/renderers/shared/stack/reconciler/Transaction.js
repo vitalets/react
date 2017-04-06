@@ -183,7 +183,7 @@ var TransactionImpl = {
           ? wrapper.initialize.call(this)
           : null;
       } finally {
-        if (this.wrapperInitData[i] === OBSERVED_ERROR) {
+        if (this.wrapperInitData[i] === OBSERVED_ERROR) { // runtyper-disable-line
           // The initializer for wrapper i threw an error; initialize the
           // remaining wrappers but silence any exceptions from them to ensure
           // that the first error is the one to bubble up.
@@ -217,7 +217,7 @@ var TransactionImpl = {
         // close -- if it's still set to true in the finally block, it means
         // wrapper.close threw.
         errorThrown = true;
-        if (initData !== OBSERVED_ERROR && wrapper.close) {
+        if (initData !== OBSERVED_ERROR && wrapper.close) { // runtyper-disable-line
           wrapper.close.call(this, initData);
         }
         errorThrown = false;

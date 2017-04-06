@@ -102,9 +102,9 @@ var DOMPropertyInjection = {
         ),
       };
       invariant(
-        propertyInfo.hasBooleanValue +
-          propertyInfo.hasNumericValue +
-          propertyInfo.hasOverloadedBooleanValue <=
+        propertyInfo.hasBooleanValue +              // runtyper-disable-line
+          propertyInfo.hasNumericValue +            // runtyper-disable-line
+          propertyInfo.hasOverloadedBooleanValue <= // runtyper-disable-line
           1,
         'DOMProperty: Value can be one of boolean, overloaded boolean, or ' +
           'numeric value, but not a combination: %s',
